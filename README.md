@@ -68,7 +68,7 @@ The following open-source libraries, planning engines, and reference implementat
 
 The table below is sorted by **GitHub Stars (Descending)**:
 
-| Repository & Link | GitHub Stars | Language / Ecosystem | Primary Domain & Key Capabilities |
+| Repository & Link | GitHub_Stars | Language / Ecosystem | Primary Domain & Key Capabilities |
 | :--- | :---: | :--- | :--- |
 | **[Odoo (Inventory & MRP)](https://github.com/odoo/odoo)** | [![GitHub stars](https://img.shields.io/github/stars/odoo/odoo?style=social&color=white)](https://github.com/odoo/odoo/stargazers) | Python / JS | Enterprise open-source ERP with double-entry inventory tracking, multi-warehouse routing, automated reorder rules, and manufacturing MRP. |
 | **[ERPNext](https://github.com/frappe/erpnext)** | [![GitHub stars](https://img.shields.io/github/stars/frappe/erpnext?style=social&color=white)](https://github.com/frappe/erpnext/stargazers) | Python / JS | Full-featured open-source ERP offering real-time stock ledger, automated replenishment triggers, multi-currency purchasing, and batch/serial control. |
