@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+
+    <!-- Accent Gradient 1 -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <!-- Glowing Line Gradient -->
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2" />
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.95; transform: scale(1.2); }
+    }
+    @keyframes floatWave {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes dash {
+      to { stroke-dashoffset: -1000; }
+    }
+    .pulse-node {
+      animation: pulse 3s ease-in-out infinite;
+      transform-origin: center;
+    }
+    .wave-line {
+      stroke-dasharray: 8 6;
+      animation: dash 35s linear infinite;
+    }
+    .stock-curve {
+      animation: floatWave 6s ease-in-out infinite;
+    }
+    .tag-badge {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+    }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+
+  <!-- Grid Background Pattern -->
+  <g opacity="0.12">
+    <path d="M0,60 H1200 M0,120 H1200 M0,180 H1200 M0,240 H1200 M0,300 H1200" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 4" />
+    <path d="M120,0 V360 M240,0 V360 M360,0 V360 M480,0 V360 M600,0 V360 M720,0 V360 M840,0 V360 M960,0 V360 M1080,0 V360" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 4" />
+  </g>
+
+  <!-- Dynamic Stock & Multi-Echelon Network Visuals -->
+  <g class="stock-curve" opacity="0.88">
+    <path class="wave-line" d="M780,240 Q880,140 980,200 T1140,110" fill="none" stroke="url(#lineGrad)" stroke-width="3" />
+    <path class="wave-line" d="M820,290 Q920,220 1020,270 T1150,190" fill="none" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="2" />
+    
+    <line x1="750" y1="210" x2="1150" y2="210" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6" />
+    <text x="1055" y="204" fill="#f43f5e" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="600" opacity="0.85">SAFETY STOCK TARGET</text>
+
+    <path d="M750,260 Q830,120 910,180 T1070,90 L1150,130 L1150,310 L750,310 Z" fill="url(#accentGrad)" opacity="0.08" />
+    <path d="M750,260 Q830,120 910,180 T1070,90 L1150,130" fill="none" stroke="url(#accentGrad)" stroke-width="3.5" filter="url(#glow)" />
+
+    <circle cx="750" cy="260" r="7" fill="#38bdf8" class="pulse-node" filter="url(#nodeGlow)" />
+    <circle cx="830" cy="155" r="5" fill="#818cf8" />
+    <circle cx="910" cy="180" r="8" fill="#34d399" class="pulse-node" filter="url(#nodeGlow)" />
+    <circle cx="990" cy="135" r="5" fill="#c084fc" />
+    <circle cx="1070" cy="90" r="9" fill="#38bdf8" class="pulse-node" filter="url(#nodeGlow)" />
+    <circle cx="1150" cy="130" r="6" fill="#f472b6" />
+  </g>
+
+  <!-- Left Content Info -->
+  <g transform="translate(60, 0)">
+    <g transform="translate(0, 52)">
+      <rect width="280" height="28" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <circle cx="14" cy="14" r="5" fill="#34d399" class="pulse-node" />
+      <text x="28" y="18" fill="#94a3b8" class="tag-badge">SUPPLY CHAIN &amp; INVENTORY AI</text>
+    </g>
+
+    <text x="0" y="132" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-0.5">
+      Awesome Inventory Optimization
+    </text>
+
+    <text x="0" y="172" fill="url(#accentGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="22" font-weight="600">
+      Platforms, Engines &amp; Algorithms
+    </text>
+
+    <text x="0" y="218" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400">
+      Curated ecosystem of SaaS category leaders &amp; open-source libraries for multi-echelon
+    </text>
+    <text x="0" y="240" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="400">
+      planning, probabilistic demand forecasting, safety stock calculation &amp; replenishment.
+    </text>
+
+    <g transform="translate(0, 275)">
+      <rect x="0" y="0" width="135" height="26" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.4" />
+      <text x="12" y="17" fill="#38bdf8" class="tag-badge">📊 DEMAND SENSING</text>
+
+      <rect x="145" y="0" width="115" height="26" rx="6" fill="#1e293b" stroke="#818cf8" stroke-opacity="0.4" />
+      <text x="157" y="17" fill="#818cf8" class="tag-badge">⚡ MEIO ENGINES</text>
+
+      <rect x="270" y="0" width="135" height="26" rx="6" fill="#1e293b" stroke="#34d399" stroke-opacity="0.4" />
+      <text x="282" y="17" fill="#34d399" class="tag-badge">🛡️ SAFETY STOCK</text>
+
+      <rect x="415" y="0" width="130" height="26" rx="6" fill="#1e293b" stroke="#c084fc" stroke-opacity="0.4" />
+      <text x="427" y="17" fill="#c084fc" class="tag-badge">🔄 REPLENISHMENT</text>
+    </g>
+  </g>
+</svg>
